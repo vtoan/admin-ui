@@ -4,7 +4,7 @@
 .main-content{
   border-radius: 4px;
   margin: 10px;
-  padding: 14px 24px;
+  padding: 0 24px;
   background-color: white;
   min-height: 80vh;
 }
@@ -23,4 +23,7 @@
 
 .overview-item td{
   padding:1em 0em;
+}
+.input-search {
+  min-width: 300px !important ;
 }

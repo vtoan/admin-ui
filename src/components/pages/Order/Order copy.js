@@ -30,7 +30,7 @@ const selects = [
         value: 3,
     },
 ];
-export default function Order() {
+export default function Ordeasdr() {
     const data = [
         createData(1, "Cupcake", 305, 3.7, 67, 4.3),
         createData(2, "Donut", 452, 25.0, 51, 4.9),
@@ -43,6 +43,12 @@ export default function Order() {
         createData(9, "KitKat", 518, 26.0, 65, 7.0),
     ];
     const headTables = [
+        {
+            id: "id",
+            numeric: false,
+            sort: true,
+            label: "Status",
+        },
         {
             id: "name",
             numeric: false,
@@ -58,14 +64,8 @@ export default function Order() {
             sort: false,
             label: "Protein (g)",
         },
-        {
-            id: "status",
-            numeric: true,
-            sort: true,
-            label: "Status",
-        },
     ];
-    const bodyTables = headTables;
+    const bodyTables = headTables.slice(1);
     const handleClick = (id, type) => {
         console.log(type ?? "click");
         console.log(id);
@@ -78,6 +78,12 @@ export default function Order() {
     };
     const template = (row, props) => (
         <>
+            <TableCell padding="checkbox">
+                <Checkbox
+                    checked={row.status}
+                    onChange={() => props.onClick(row.id, "status")}
+                />
+            </TableCell>
             {bodyTables.map((item) => (
                 <TableCell
                     onClick={() => props.onClick(row.name, "click")}

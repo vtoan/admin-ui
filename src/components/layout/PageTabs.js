@@ -9,20 +9,22 @@ export default function PageTabs(props) {
         setValue(newValue);
     };
     return (
-        <Page title="Phân loại">
-            <Tabs
-                value={value}
-                indicatorColor="primary"
-                textColor="primary"
-                onChange={handleChange}
-            >
-                {props.tabPanel.map((item, index) => (
-                    <Tab key={+index} label={item.label} tabIndex={index} />
-                ))}
-            </Tabs>
-            <div style={{ padding: "24px 0" }}>
-                {props.tabPanel[value].comp}
-            </div>
+        <Page
+            title="Phân loại"
+            toolbar={
+                <Tabs
+                    value={value}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    onChange={handleChange}
+                >
+                    {props.tabPanel.map((item, index) => (
+                        <Tab key={+index} label={item.label} tabIndex={index} />
+                    ))}
+                </Tabs>
+            }
+        >
+            {props.tabPanel[value].comp}
         </Page>
     );
 }
